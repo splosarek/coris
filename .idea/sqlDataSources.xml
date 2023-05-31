@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="45f5a55f-06f1-401b-9619-021166c48204" name="coris@localhost Mapping">
+      <data-sources db="848447db-0a9b-4985-a090-83070bc1c7a2" ddl="3d36a89a-8095-4080-8666-d3316967d546" />
+      <scope>
+        <node kind="schema" qname="coris" />
+      </scope>
+    </mapping>
+  </component>
+</project>

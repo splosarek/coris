@@ -1,0 +1,146 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=windows-1250">
+    </head>
+    <body bgcolor="#cccccc">
+        <style>
+            a, a:active, a:visited {
+                color="#eeeeee";
+                text-decoration: none;
+            }
+            body {
+                color="#000000";
+                font-family: verdana;
+                margin-top: 0.3cm;
+                margin-bottom: 0.1cm;
+                margin-left: 0.1cm;
+                margin-right: 0.1cm;
+            }
+            td {
+                font-size: 9pt;
+            }
+        </style>
+        <script language="JavaScript">
+            <!--
+            function Calendar(Month,Year) {
+
+                var output = '<TABLE BGCOLOR="#d0d0d0" BORDER=0>';
+                output += '<TR><TD ALIGN=CENTER WIDTH="15%"><A HREF="javascript:changeMonthL(' + Month + ',' + Year + ')"><font face="webdings" size="2" color="#eeeeee">7</font></A></TD>';
+                    output += '<TD ALIGN=CENTER WIDTH="70%"><FONT SIZE="1" COLOR="#eeeeee"><b>' + names[Month] + ' ' + Year + '</b></FONT></TD>';
+                output += '<TD ALIGN=CENTER WIDTH="15%"><A HREF="javascript:changeMonthG(' + Month + ',' + Year + ')"><font face="webdings" size="2" color="#eeeeee">8</font></A><\/TD></TR>';
+                output += '<TR><TD ALIGN=CENTER COLSPAN=3>';
+
+                firstDay = new Date(Year,Month,1);
+                startDay = firstDay.getDay();
+
+                if (((Year % 4 == 0) && (Year % 100 != 0)) || (Year % 400 == 0))
+                     days[1] = 29;
+                else
+                     days[1] = 28;
+
+                output += '<TABLE CALLSPACING=0 CELLPADDING=0 BORDER=0 BGCOLOR="#eeeeee"><TR bgcolor="bbbbbb">';
+
+                for (i=0; i<5; i++)
+                    output += '<TD WIDTH=30 ALIGN=CENTER VALIGN=MIDDLE><FONT COLOR="#eeeeee"><B>' + dow[i] +'<\/B><\/FONT><\/TD>';
+                for (i=5; i<7; i++)
+                    output += '<TD WIDTH=30 ALIGN=CENTER VALIGN=MIDDLE><FONT COLOR="red"><B>' + dow[i] +'<\/B><\/FONT><\/TD>';
+
+                output += '<\/TR><TR ALIGN=CENTER VALIGN=MIDDLE>';
+
+                var column = 0;
+                var lastMonth = Month - 1;
+                if (lastMonth == -1) lastMonth = 11;
+
+                for (i=1; i<startDay; i++, column++)
+                    output += '<TD WIDTH=30 HEIGHT=20><FONT COLOR="#666666">' + (days[lastMonth]-startDay+i+1) + '<\/FONT><\/TD>';
+
+                for (i=1; i<=days[Month]; i++, column++) {
+
+                    var old_day = i;
+                    var old_month = Month;
+
+                    var day;
+                    if (i < 10) {
+                        day = '0' + i;
+                    } else {
+                        day = i;
+                    }
+
+                    var month = Month + 1;
+                    if (month < 10) {
+                        month = '0' + month;
+                    }
+                        
+                    if (i == new Date().getDate() && Month == new Date().getMonth() && Year == new Date().getYear())	{
+                        output += '<TD WIDTH=30 HEIGHT=20 bgColor="#336699" STYLE="CURSOR: default" ONMOUSEOVER="this.bgColor=\'#dddddd\'" ONMOUSEOUT="this.bgColor=\'#336699\'" ONCLICK="parent.form1.date_start.value=\'' + Year + '-' + month + '-' + day + '\'; parent.form1.date_start_day.value=\'' + old_day + '\'; parent.form1.date_start_month.value = \'' + old_month + '\'; parent.form1.date_start_year.value =\'' + Year + '\'; window.close();">'
+                     } else {
+                     output += '<TD WIDTH=30 HEIGHT=20 bgColor="#eeeeee" STYLE="CURSOR: default" ONMOUSEOVER="this.bgColor=\'#dddddd\'" ONMOUSEOUT="this.bgColor=\'\'" ONCLICK="parent.form1.date_start.value=\'' + Year + '-' + month + '-' + day + '\'; parent.form1.date_start_day.value = \'' + old_day + '\'; parent.form1.date_start_month.value = \'' + old_month + '\'; parent.form1.date_start_year.value = \'' + Year + '\'; window.close();">'
+                     }
+
+                  if ((column >= 0) && (column < 5)) {
+                      output += '<FONT COLOR="#bbbbbb">' + i + '<\/FONT>' + '<\/TD>';
+                  }
+                  if (column == 5) {
+                      output += '<FONT COLOR="#99ccee">' + i + '<\/FONT>' + '<\/TD>';
+                  }
+                    if (column == 6) {
+                        output += '<FONT COLOR="#99ccee">' + i + '<\/FONT>' + '<\/TD>';
+                        output += '<\/TR><TR ALIGN=CENTER VALIGN=MIDDLE>';
+                        column = -1;
+                    }
+                }
+
+                if (column > 0) {
+                    for (i=1; column<7; i++, column++)
+                        output +=  '<TD WIDTH=30 HEIGHT=20><FONT COLOR="#666666">' + i + '<\/FONT><\/TD>';
+                }
+
+                output += '<\/TR><\/TABLE><\/TD><\/TR><\/TABLE>';
+
+                return output;
+            }
+
+            function changeMonthL(m,y) {
+                if(m == 0){
+                    parent.month = 11;
+                    parent.year = y - 1;
+                    }
+                else {
+                    parent.month = m - 1;
+                    parent.year = y;
+                    }
+                location.href = 'AS_schedule_popup_leave_calendar_start.htm';
+            }
+
+            function changeMonthG(m,y) {
+                if(m == 11){
+                    parent.month = 0;
+                    parent.year = y + 1;
+                    }
+                else {
+                    parent.month = m + 1;
+                    parent.year = y;
+                    }
+                location.href = 'AS_schedule_popup_leave_calendar_start.htm';
+            }
+
+            function makeArray0() {
+                for (i = 0; i<makeArray0.arguments.length; i++)
+                    this[i] = makeArray0.arguments[i];
+            }
+
+            var names   = new makeArray0('Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec','Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień');
+            var days      = new makeArray0(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+            var dow       = new makeArray0('Pn','Wt','Śr','Cz','Pt','Sb','Nd');
+
+            //-->
+        </script>
+        <center>
+            <script language="JavaScript">
+                <!--
+                document.write(Calendar(parent.month,parent.year));
+                //-->
+            </script>
+        </center>
+    </body>
+</html>

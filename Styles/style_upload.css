@@ -1,0 +1,79 @@
+a.hover {
+  color: red;
+}
+
+#demo-list {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+#demo-list .file-invalid {
+  cursor: pointer;
+  color: #514721;
+  padding-left: 48px;
+  line-height: 24px;
+  background: url(../img/assets/error.png) no-repeat 24px 5px;
+  margin-bottom: 1px;
+}
+#demo-list .file-invalid span {
+  background-color: #fff6bf;
+  padding: 1px;
+}
+
+#demo-list .file {
+  display: block;
+  line-height: 2em;
+  padding-left: 22px;
+  background: url(../img/assets/attach.png) no-repeat 1px 50%;
+  clear: both;
+  margin-bottom: 5px;
+}
+
+#demo-list .file span,
+#demo-list .file a {
+  padding: 0 4px;
+}
+
+#demo-list .file .file-size {
+  color: #666;
+  margin-left: 5px;
+  margin-right: 5px; 
+  padding-left: 5px;
+  padding-right: 5px;
+    float: left;
+}
+
+#demo-list .file .file-error {
+  color: #8a1f11;
+}
+
+#demo-list .clear{
+  clear: both;
+}
+
+
+#demo-list .file-title {
+  width: 150px;
+  height: 20px;
+  overflow: hidden;
+  display: block;
+  float: left;
+}
+
+
+#demo-list .file-desc {
+  width: 200px;
+  height: 30px;
+  float: right;
+}
+#demo-list .file-check{
+  float: left;
+}
+
+#demo-list .file .file-progress {
+  width: 125px;
+  height: 12px;
+  vertical-align: middle;
+  background-image: url(../img/assets/progress-bar/progress.gif);
+}

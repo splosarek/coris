@@ -801,6 +801,7 @@ function status2($row)
 						 </td>																
 						 <td width="16%" align="center" ' . (($row['taxi']) ? "bgcolor=\"red\" style=\"color: yellow\"" : "style=\"color: red\"") . '>
 							<input type="checkbox"   value="1" name="taxi"  id="taxi" style="background: red;" ' . (($row['taxi']) ? "checked" : "") . '    title="' . ($row['taxi'] == 1 ? 'Data: ' . $row['taxi_date'] . "\n" . "U?ytkownik: " . getUserName($row['taxi_ID_user']) : '') . '">&nbsp;<font onclick="FormcheckboxSelect(\'taxi\');"  style="cursor: default"  title="' . ($row['taxi'] == 1 ? 'Data: ' . $row['taxi_date'] . "\n" . "U?ytkownik: " . getUserName($row['taxi_ID_user']) : '') . '"><b>Taxi</b></font>
+							<input type="hidden"  name="taxi_old"  id="taxi_old" value="' . $row['taxi'] . '">
 						 </td>																
 					</tr>
 				</table><br>';
